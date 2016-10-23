@@ -56,6 +56,7 @@ class ViewController: UIViewController {
             try player = AVAudioPlayer(contentsOf: URL(fileURLWithPath: audioPath!))
             progressSlider.maximumValue = Float(player.duration)
             
+            try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback)
             try AVAudioSession.sharedInstance().setActive(true)
             player.volume = AVAudioSession.sharedInstance().outputVolume
             volumeSlider.value = player.volume
